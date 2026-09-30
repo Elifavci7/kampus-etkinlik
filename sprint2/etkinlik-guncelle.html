@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kampüs Etkinlikleri - Etkinlik Güncelle</title>
+    <link rel="stylesheet" href="css/2416501019.css">
+</head>
+<body>
+
+    <header>
+        <h1>Etkinlik Güncelle</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a> |
+            <a href="etkinlikler.html">Etkinlikler</a> |
+            <a href="etkinlik-ekle.html">Etkinlik Ekle</a>
+        </nav>
+    </header>
+
+    <main>
+        <form action="#" method="post">
+            <div>
+                <label for="etkinlikAdi">Etkinlik Adı</label><br>
+                <input type="text" id="etkinlikAdi" name="etkinlikAdi" value="Kariyer Günleri 2026" required>
+            </div>
+            <br>
+            <div>
+                <label for="kategori">Kategori</label><br>
+                <select id="kategori" name="kategori" required>
+                    <option value="seminer" selected>Seminer</option>
+                    <option value="atolye">Atölye</option>
+                    <option value="konferans">Konferans</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="tarihSaat">Tarih / Saat</label><br>
+                <input type="datetime-local" id="tarihSaat" name="tarihSaat" value="2026-10-12T14:00" required>
+            </div>
+            <br>
+            <div>
+                <label for="yer">Yer</label><br>
+                <input type="text" id="yer" name="yer" value="A Blok Konferans Salonu" required>
+            </div>
+            <br>
+            <div>
+                <label for="aciklama">Açıklama</label><br>
+                <textarea id="aciklama" name="aciklama" rows="5" cols="30" required>Geleceğin kariyer fırsatlarını sektör temsilcileriyle tartışıyoruz.</textarea>
+            </div>
+            <br>
+            <button type="submit">Güncelle</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Ad Soyad · Öğrenci No · 2026</p>
+    </footer>
+
+</body>
+</html>
