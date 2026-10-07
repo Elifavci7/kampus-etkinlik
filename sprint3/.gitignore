@@ -1,0 +1,9 @@
+# IDE ve Editör dosyaları
+.vscode/
+.idea/
+
+# Sistem ve Geçici Dosyalar
+.DS_Store
+Thumbs.db
+*.tmp
+*.log

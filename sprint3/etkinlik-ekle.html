@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampüs Etkinlikleri - Etkinlik Ekle</title>
+    <link rel="stylesheet" href="css/2416501019.css">
+
+</head>
+<body>
+
+    <header>
+        <h1>Etkinlik Ekle</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a> |
+            <a href="etkinlikler.html">Etkinlikler</a> |
+            <a href="etkinlik-ekle.html">Etkinlik Ekle</a>
+        </nav>
+    </header>
+
+    <main>
+        <form action="#" method="post">
+            <div>
+                <label for="etkinlikAdi">Etkinlik Adı</label><br>
+                <input type="text" id="etkinlikAdi" name="etkinlikAdi" required>
+            </div>
+            <br>
+            <div>
+                <label for="kategori">Kategori</label><br>
+                <select id="kategori" name="kategori" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="seminer">Seminer</option>
+                    <option value="atolye">Atölye</option>
+                    <option value="konferans">Konferans</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="tarihSaat">Tarih / Saat</label><br>
+                <input type="datetime-local" id="tarihSaat" name="tarihSaat" required>
+            </div>
+            <br>
+            <div>
+                <label for="yer">Yer</label><br>
+                <input type="text" id="yer" name="yer" required>
+            </div>
+            <br>
+            <div>
+                <label for="aciklama">Açıklama</label><br>
+                <textarea id="aciklama" name="aciklama" rows="5" cols="30" required></textarea>
+            </div>
+            <br>
+            <button type="submit">Kaydet</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Ad Soyad · Öğrenci No · 2026</p>
+    </footer>
+
+</body>
+</html>

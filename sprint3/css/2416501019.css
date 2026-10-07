@@ -1,0 +1,146 @@
+/* Elif Avcı - 2416501019 */
+:root {
+  --no: 2416501019;
+  --ton: 219;
+  --renk-ana: hsl(var(--ton), 65%, 38%);
+  --renk-zemin: hsl(var(--ton), 30%, 97%);
+  --font: "Lucida Console", monospace;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--renk-zemin);
+  color: #222;
+  line-height: 1.5;
+  padding: var(--bosluk-m);
+}
+
+/* Header ve Navigasyon */
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  margin-bottom: var(--bosluk-m);
+}
+
+header h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Kartlar ve Liste Düzeni (Grid) */
+section.etkinlik-listesi {
+  display: grid;
+  grid-template-columns: 1fr; /* Telefonda tek sütun */
+  gap: var(--bosluk-m);
+}
+
+article {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+article h2, article h3 {
+  color: var(--renk-ana);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Detay Sayfası Düzeni */
+.detay-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bosluk-m);
+}
+
+.afis-kutusu {
+  background-color: #e2e8f0;
+  border-radius: var(--kose);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Form Elemanları ve Hatalı Alan Kuralı */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: calc(var(--kose) / 2);
+  font-family: inherit;
+}
+
+/* Boş bırakılan hatalı alan uyarısı */
+input:invalid, input.hata {
+  border-color: #e53e3e;
+  background-color: #fff5f5;
+}
+
+button {
+  background-color: var(--renk-ana);
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: calc(var(--kose) / 2);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.85rem;
+}
+
+/* Masaüstü Ekranlar İçin Responsive Düzen */
+@media (min-width: 768px) {
+  section.etkinlik-listesi {
+    grid-template-columns: repeat(3, 1fr); /* Masaüstünde 3 sütun */
+  }
+
+  .detay-container {
+    flex-direction: row;
+  }
+
+  .afis-kutusu, .kunye {
+    flex: 1;
+  }
+}
