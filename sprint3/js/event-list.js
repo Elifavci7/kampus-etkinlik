@@ -5,10 +5,10 @@ const aramaInput = document.querySelector("#arama");
 const kategoriSelect = document.querySelector("#kategori-filtre");
 const sonucSatiri = document.querySelector("#sonuc");
 
-// Sprint 2 CSS yapısıyla tam uyumlu kart şablonu
+// Slayttaki ile birebir aynı kart şablonu
 function createCard(event) {
   const parts = event.date.split("-");
-  const formattedDate = `${parts[2]}.${parts[1]}.${parts[0]}`;
+  const formattedDate = `${parts[2]}.${parts[1]}.${parts0 ?? parts[0]}`;
 
   return `
     <article class="kart">
@@ -23,14 +23,14 @@ function createCard(event) {
   `;
 }
 
-// Ekrana Kartları Basma
+// Ekrana Basma
 function render(dizi) {
   if (list) {
     list.innerHTML = dizi.map(createCard).join("");
   }
 }
 
-// Dinamik Kategoriler
+// Kategorileri Doldurma
 if (kategoriSelect) {
   const kategoriler = [...new Set(events.map(e => e.category))];
   kategoriler.forEach(kat => {
@@ -63,7 +63,7 @@ function filtrele() {
   }
 }
 
-// Sayfa Açılış Kontrolü
+// Başlangıç Çalıştırması
 if (list) {
   if (list.dataset.limit) {
     const yaklasan = [...events]
