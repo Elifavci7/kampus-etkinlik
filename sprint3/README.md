@@ -1,3 +1,4 @@
+[https://kampus-etkinlik-rosy.vercel.app](https://kampus-etkinlik-rosy.vercel.app)
 # Kampüs Etkinlik Portalı - Sprint 1
 
 Bu proje, kampüsteki etkinliklerin listelendiği, detaylarının görüntülendiği ve yeni etkinlik ekleme/güncelleme formlarının yer aldığı saf HTML tabanlı bir web uygulamasıdır.
