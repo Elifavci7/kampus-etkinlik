@@ -5,20 +5,20 @@ const aramaInput = document.querySelector("#arama");
 const kategoriSelect = document.querySelector("#kategori-filtre");
 const sonucSatiri = document.querySelector("#sonuc");
 
-// Kart Oluşturma Fonksiyonu
+// Sprint 2 CSS yapısıyla tam uyumlu kart şablonu
 function createCard(event) {
   const parts = event.date.split("-");
   const formattedDate = `${parts[2]}.${parts[1]}.${parts[0]}`;
 
   return `
-    <article class="kart" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-      <h3 style="margin-top: 0; color: #2b6cb0; font-size: 1.25rem;">${event.title}</h3>
-      <p style="margin: 0.4rem 0;"><strong>Kategori:</strong> ${event.category}</p>
-      <p style="margin: 0.4rem 0;"><strong>Tarih:</strong> ${formattedDate} - ${event.time}</p>
-      <p style="margin: 0.4rem 0;"><strong>Yer:</strong> ${event.location}</p>
-      <p style="margin: 0.4rem 0;"><strong>Kontenjan:</strong> ${event.capacity} kişi</p>
-      <p style="margin: 0.8rem 0 1rem 0; color: #4a5568;">${event.description}</p>
-      <a href="etkinlik-detay.html?id=${event.id}" style="display: inline-block; background: #3182ce; color: #ffffff; padding: 0.4rem 0.8rem; border-radius: 4px; text-decoration: none; font-weight: 500;">Detayları gör &rarr;</a>
+    <article class="kart">
+      <h3>${event.title}</h3>
+      <p class="kategori">${event.category}</p>
+      <p><strong>Tarih:</strong> ${formattedDate}, ${event.time}</p>
+      <p><strong>Yer:</strong> ${event.location}</p>
+      <p><strong>Kontenjan:</strong> ${event.capacity} kişi</p>
+      <p>${event.description}</p>
+      <a href="etkinlik-detay.html?id=${event.id}">Detayları gör</a>
     </article>
   `;
 }
@@ -30,7 +30,7 @@ function render(dizi) {
   }
 }
 
-// Kategorileri Seçim Kutusuna Doldurma
+// Dinamik Kategoriler
 if (kategoriSelect) {
   const kategoriler = [...new Set(events.map(e => e.category))];
   kategoriler.forEach(kat => {
@@ -41,7 +41,7 @@ if (kategoriSelect) {
   });
 }
 
-// Filtreleme Fonksiyonu
+// Filtreleme
 function filtrele() {
   const aranan = aramaInput ? aramaInput.value.toLowerCase().trim() : "";
   const secilenKategori = kategoriSelect ? kategoriSelect.value : "";
@@ -63,7 +63,7 @@ function filtrele() {
   }
 }
 
-// Sayfa Açıldığında Çalıştırma
+// Sayfa Açılış Kontrolü
 if (list) {
   if (list.dataset.limit) {
     const yaklasan = [...events]

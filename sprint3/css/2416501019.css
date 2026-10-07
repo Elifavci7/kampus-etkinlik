@@ -144,3 +144,35 @@ footer {
     flex: 1;
   }
 }
+/* Kartların yan yana 2'li sütun durmasını sağlayan grid kuralı */
+#etkinlik-listesi, .etkinlik-listesi {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  margin-top: 20px !important;
+}
+
+.kart {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.kart h3 {
+  margin-top: 0;
+  color: #1a56db;
+}
+
+.kart a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1a56db;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.kart a:hover {
+  text-decoration: underline;
+}
