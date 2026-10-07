@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kampüs Etkinlikleri - Etkinlikler</title>
+    <title>Etkinlikler</title>
+
     <link rel="stylesheet" href="css/2416501019.css">
     <script type="module" src="js/event-list.js"></script>
 </head>
+
 <body>
 
     <header>
         <h1>Kampüs Etkinlikleri</h1>
-        <nav>
-            <a href="index.html">Ana Sayfa</a> |
-            <a href="etkinlikler.html">Etkinlikler</a> |
-            <a href="etkinlik-ekle.html">Etkinlik Ekle</a>
-        </nav>
+
+       <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="etkinlikler.html">Etkinlikler</a>
+    <a href="etkinlik-ekle.html">Etkinlik Ekle</a>
+</nav>
     </header>
 
     <main>
-        <h2>Tüm Etkinlikler</h2>
-        <p>Ekim ayında kampüste düzenlenen etkinlikler.</p>
-        <br>
 
-        <!-- Filtre Formu (Arama Kutusu + Kategori Seçimi) -->
-        <form id="filtre-formu" class="filtre" onsubmit="event.preventDefault();">
-            <div>
-                <label for="arama">Etkinlik ara</label><br>
-                <input type="search" id="arama" placeholder="Örn: atölye, kariyer...">
-            </div>
-            <br>
-            <div>
-                <label for="kategori-filtre">Kategori</label><br>
-                <select id="kategori-filtre">
-                    <option value="">Tümü</option>
-                </select>
-            </div>
-        </form>
-        
-        <p id="sonuc" style="margin-top: 10px; font-weight: bold;"></p>
-        <br>
+        <h2>Etkinlikler</h2>
+        <form id="filtre-formu" class="filtre">
 
-        <!-- JavaScript'in 6 kartı içine dinamik basacağı boş container -->
-        <section id="etkinlik-listesi" class="etkinlik-listesi"></section>
+    <div class="filtre-alani">
+        <label for="arama">Etkinlik ara</label>
+        <input type="search" id="arama">
+    </div>
+
+    <div class="filtre-alani">
+        <label for="kategori-filtre">Kategori</label>
+        <select id="kategori-filtre">
+            <option value="">Tümü</option>
+        </select>
+    </div>
+
+</form>
+
+<p id="sonuc"></p>
+
+
+<p id="sonuc"></p>
+
+        <section id="etkinlik-listesi" class="event-grid">
+        </section>
+
+        <h2>Ayın Programı</h2>
+
+        <table border="1">
+
+            <caption>Ayın Programı</caption>
+
+            <tr>
+                <td>Tarih</td>
+                <td>Etkinlik</td>
+                <td>Yer</td>
+            </tr>
+
+            <tr>
+                <td>12 Ekim</td>
+                <td>Kariyer Günleri</td>
+                <td>A Blok</td>
+            </tr>
+
+            <tr>
+                <td>20 Ekim</td>
+                <td>Robotik Atölyesi</td>
+                <td>Lab 2</td>
+            </tr>
+
+        </table>
+
     </main>
 
     <footer>
-        <p>Ad Soyad · Öğrenci No · 2026</p>
+        <p>elif avcı · 2416501019 · 2026</p>
     </footer>
 
 </body>
+
 </html>

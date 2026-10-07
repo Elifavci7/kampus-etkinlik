@@ -1,60 +1,91 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kampüs Etkinlikleri - Etkinlik Güncelle</title>
+    <title>Etkinlik Güncelle</title>
+
     <link rel="stylesheet" href="css/2416501019.css">
+    <script type="module" src="js/event-form.js"></script>
 </head>
+
 <body>
 
     <header>
-        <h1>Etkinlik Güncelle</h1>
+        <h1>Kampüs Etkinlikleri</h1>
+
         <nav>
-            <a href="index.html">Ana Sayfa</a> |
-            <a href="etkinlikler.html">Etkinlikler</a> |
+            <a href="index.html">Ana Sayfa</a>
+            <a href="etkinlikler.html">Etkinlikler</a>
             <a href="etkinlik-ekle.html">Etkinlik Ekle</a>
         </nav>
     </header>
 
     <main>
-        <form action="#" method="post">
-            <div>
-                <label for="etkinlikAdi">Etkinlik Adı</label><br>
-                <input type="text" id="etkinlikAdi" name="etkinlikAdi" value="Kariyer Günleri 2026" required>
+
+        <h2>Etkinlik Güncelle</h2>
+
+        <form id="etkinlik-formu" data-mode="guncelle" novalidate>
+
+            <div class="form-alani">
+                <label for="etkinlik-adi">Etkinlik Adı</label>
+                <input type="text" id="etkinlik-adi" name="ad">
+                <span id="ad-hata" class="form-hata"></span>
             </div>
-            <br>
-            <div>
-                <label for="kategori">Kategori</label><br>
-                <select id="kategori" name="kategori" required>
-                    <option value="seminer" selected>Seminer</option>
-                    <option value="atolye">Atölye</option>
-                    <option value="konferans">Konferans</option>
+
+            <div class="form-alani">
+                <label for="kategori">Kategori</label>
+                <select id="kategori" name="kategori">
+                    <option value="">Seçiniz</option>
+                    <option value="Seminer">Seminer</option>
+                    <option value="Atölye">Atölye</option>
+                    <option value="Konferans">Konferans</option>
                 </select>
+                <span id="kategori-hata" class="form-hata"></span>
             </div>
-            <br>
-            <div>
-                <label for="tarihSaat">Tarih / Saat</label><br>
-                <input type="datetime-local" id="tarihSaat" name="tarihSaat" value="2026-10-12T14:00" required>
+
+            <div class="form-alani">
+                <label for="tarih">Tarih</label>
+                <input type="date" id="tarih" name="tarih">
+                <span id="tarih-hata" class="form-hata"></span>
             </div>
-            <br>
-            <div>
-                <label for="yer">Yer</label><br>
-                <input type="text" id="yer" name="yer" value="A Blok Konferans Salonu" required>
+
+            <div class="form-alani">
+                <label for="saat">Saat</label>
+                <input type="time" id="saat" name="saat">
+                <span id="saat-hata" class="form-hata"></span>
             </div>
-            <br>
-            <div>
-                <label for="aciklama">Açıklama</label><br>
-                <textarea id="aciklama" name="aciklama" rows="5" cols="30" required>Geleceğin kariyer fırsatlarını sektör temsilcileriyle tartışıyoruz.</textarea>
+
+            <div class="form-alani">
+                <label for="yer">Yer</label>
+                <input type="text" id="yer" name="yer">
+                <span id="yer-hata" class="form-hata"></span>
             </div>
-            <br>
+
+            <div class="form-alani">
+                <label for="aciklama">Açıklama</label>
+                <textarea id="aciklama" name="aciklama"></textarea>
+            </div>
+
+            <div class="form-alani">
+                <label for="kontenjan">Kontenjan</label>
+                <input type="number" id="kontenjan" name="kontenjan">
+                <span id="kontenjan-hata" class="form-hata"></span>
+            </div>
+
             <button type="submit">Güncelle</button>
+
+            <div id="form-mesaj"></div>
+
         </form>
+
     </main>
 
     <footer>
-        <p>Ad Soyad · Öğrenci No · 2026</p>
+        <p>elif avcı · 2416501019 · 2026</p>
     </footer>
 
 </body>
+
 </html>

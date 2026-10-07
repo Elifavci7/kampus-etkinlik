@@ -1,217 +1,195 @@
 /* Elif Avcı - 2416501019 */
 :root {
-  --no: 2416501019;
-  --ton: 219;
-  --renk-ana: hsl(var(--ton), 65%, 38%);
-  --renk-zemin: hsl(var(--ton), 30%, 97%);
-  --font: "Lucida Console", monospace;
-  --bosluk-m: 1rem;
-  --kose: 8px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    --no: 2416501019;
+    --ton: mod(var(--no), 360);
+    --renk-ana: hsl(var(--ton) 65% 38%);
+    --renk-zemin: hsl(var(--ton) 30% 97%);
+    --font: Arial;
+    --bosluk-m: 1rem;
+    --kose: 8px;
 }
 
 body {
-  font-family: var(--font);
-  background-color: var(--renk-zemin);
-  color: #222;
-  line-height: 1.5;
-  padding: var(--bosluk-m);
+    font-family: var(--font);
+    background-color: var(--renk-zemin);
+    color: #333333;
 }
 
-/* Header ve Navigasyon */
 header {
-  background-color: var(--renk-ana);
-  color: white;
-  padding: var(--bosluk-m);
-  border-radius: var(--kose);
-  margin-bottom: var(--bosluk-m);
+    background-color: var(--renk-ana);
+    color: white;
+    padding: 20px;
 }
 
-header h1 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+nav {
+    display: flex;
+    gap: 15px;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-right: 10px;
-  font-size: 0.9rem;
+    color: white;
+    text-decoration: none;
 }
 
-nav a:hover {
-  text-decoration: underline;
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
-/* Kartlar ve Liste Düzeni (Grid) */
-section.etkinlik-listesi {
-  display: grid;
-  grid-template-columns: 1fr; /* Telefonda tek sütun */
-  gap: var(--bosluk-m);
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
-article {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--kose);
-  padding: var(--bosluk-m);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.event-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
 }
 
-article h2, article h3 {
-  color: var(--renk-ana);
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
+@media (min-width: 768px) {
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Detay Sayfası Düzeni */
-.detay-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--bosluk-m);
+.event-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
 }
 
-.afis-kutusu {
-  background-color: #e2e8f0;
-  border-radius: var(--kose);
-  padding: 2rem;
-  text-align: center;
+.event-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
 }
 
-/* Form Elemanları ve Hatalı Alan Kuralı */
+.event-info dt {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.event-info dd {
+    margin-left: 0;
+}
+@media (min-width: 768px) {
+    .event-detail {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  background: white;
-  padding: var(--bosluk-m);
-  border-radius: var(--kose);
+    display: grid;
+    gap: 15px;
+    max-width: 600px;
 }
 
-label {
-  font-weight: bold;
-  font-size: 0.85rem;
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
-input, select, textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: calc(var(--kose) / 2);
-  font-family: inherit;
-}
-
-/* Boş bırakılan hatalı alan uyarısı */
-input:invalid, input.hata {
-  border-color: #e53e3e;
-  background-color: #fff5f5;
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #1f6f5b;
 }
 
 button {
-  background-color: var(--renk-ana);
-  color: white;
-  border: none;
-  padding: 0.7rem;
-  border-radius: calc(var(--kose) / 2);
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: bold;
+    padding: 10px 20px;
+    background-color: #1f6f5b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+nav a:hover {
+    text-decoration: underline;
 }
 
+.event-card a:hover {
+    font-weight: bold;
+}
 footer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #ccc;
-  font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: #555555;
+}
+nav a:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
-/* Masaüstü Ekranlar İçin Responsive Düzen */
+.event-card a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+button,
+nav a,
+.event-card a {
+    min-height: 44px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+.filtre {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.filtre-alani {
+    display: grid;
+    gap: 8px;
+}
+
 @media (min-width: 768px) {
-  section.etkinlik-listesi {
-    grid-template-columns: repeat(3, 1fr); /* Masaüstünde 3 sütun */
-  }
-
-  .detay-container {
-    flex-direction: row;
-  }
-
-  .afis-kutusu, .kunye {
-    flex: 1;
-  }
+    .filtre {
+        grid-template-columns: 1fr 1fr;
+    }
 }
-/* Kartların yan yana 2'li sütun durmasını sağlayan grid kuralı */
-#etkinlik-listesi, .etkinlik-listesi {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 20px !important;
-  margin-top: 20px !important;
+.form-alani {
+    display: grid;
+    gap: 6px;
 }
 
-.kart {
-  background: #ffffff;
-  border: 1px solid #d0d7de;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.form-hata {
+    min-height: 18px;
+    color: #b00020;
+    font-size: 0.9rem;
 }
 
-.kart h3 {
-  margin-top: 0;
-  color: #1a56db;
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 2px solid #b00020;
 }
 
-.kart a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #1a56db;
-  font-weight: bold;
-  text-decoration: none;
+.form-hata-mesaji {
+    padding: 12px;
+    border: 2px solid #b00020;
+    border-radius: 6px;
+    background-color: #fff0f0;
 }
 
-.kart a:hover {
-  text-decoration: underline;
-}
-/* Slayttaki gibi yan yana 2li sütun düzeni */
-#etkinlik-listesi, .etkinlik-listesi {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 20px !important;
-  margin-top: 20px !important;
-}
-
-/* Slayttaki kart stili */
-.kart {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 18px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.kart h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.15rem;
-}
-
-.kart .kategori {
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.kart p {
-  margin: 4px 0;
-  font-size: 0.95rem;
-}
-
-.kart a {
-  display: inline-block;
-  margin-top: 12px;
-  font-weight: bold;
-  text-decoration: none;
+.form-basari {
+    padding: 12px;
+    border: 2px solid #1f6f5b;
+    border-radius: 6px;
+    background-color: #eefbf5;
 }
