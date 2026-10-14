@@ -1,0 +1,195 @@
+/* Elif Avcı - 2416501019 */
+:root {
+    --no: 2416501019;
+    --ton: mod(var(--no), 360);
+    --renk-ana: hsl(var(--ton) 65% 38%);
+    --renk-zemin: hsl(var(--ton) 30% 97%);
+    --font: Arial;
+    --bosluk-m: 1rem;
+    --kose: 8px;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--renk-zemin);
+    color: #333333;
+}
+
+header {
+    background-color: var(--renk-ana);
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.event-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.event-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.event-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.event-info dt {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.event-info dd {
+    margin-left: 0;
+}
+@media (min-width: 768px) {
+    .event-detail {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+form {
+    display: grid;
+    gap: 15px;
+    max-width: 600px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #1f6f5b;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #1f6f5b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+.event-card a:hover {
+    font-weight: bold;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: #555555;
+}
+nav a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.event-card a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+button,
+nav a,
+.event-card a {
+    min-height: 44px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+.filtre {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.filtre-alani {
+    display: grid;
+    gap: 8px;
+}
+
+@media (min-width: 768px) {
+    .filtre {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.form-alani {
+    display: grid;
+    gap: 6px;
+}
+
+.form-hata {
+    min-height: 18px;
+    color: #b00020;
+    font-size: 0.9rem;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 2px solid #b00020;
+}
+
+.form-hata-mesaji {
+    padding: 12px;
+    border: 2px solid #b00020;
+    border-radius: 6px;
+    background-color: #fff0f0;
+}
+
+.form-basari {
+    padding: 12px;
+    border: 2px solid #1f6f5b;
+    border-radius: 6px;
+    background-color: #eefbf5;
+}
