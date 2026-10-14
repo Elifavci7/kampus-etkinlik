@@ -193,3 +193,29 @@ textarea[aria-invalid="true"] {
     border-radius: 6px;
     background-color: #eefbf5;
 }
+
+/* Sprint 4: menü başlığın içinde, aktif sayfa beyaz kutuda */
+header h1 {
+    margin: 0 0 var(--bosluk-m);
+}
+
+nav {
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: var(--kose);
+}
+
+nav a[aria-current="page"] {
+    background-color: white;
+    color: var(--renk-ana);
+    font-weight: bold;
+}
+
+.event-image figure {
+    margin: 0;
+}

@@ -1,4 +1,4 @@
-import type { CampusEvent, Category } from "../types/campus-event";
+import type { CampusEvent, Category } from "../types/campus-event.ts";
 
 // 1. Başlık veya açıklamada metin arama
 export function searchEvents(list: CampusEvent[], text: string): CampusEvent[] {
