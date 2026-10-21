@@ -1,25 +1,20 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { events } from "./data/events";
-import type { CampusEvent, Category } from "./types/campus-event.ts";
+import type { Category } from "./types/campus-event.ts";
 import { searchEvents, filterByCategory, findEventById } from "./utils/filter-events";
+import Footer from "./components/layout/Footer";
+import type { PageName } from "./types/page";
 
-type PageName = "home" | "events" | "detail" | "add" | "update";
-
+import Header from "./components/layout/Header";
+import Navigation from "./components/layout/Navigation";
+import EventList from "./components/events/EventList";
+import EventFilter from "./components/events/EventFilter";
+import EventDetail from "./components/events/EventDetail";
 // Menü öğeleri (map ile çizilir)
-const menu: { page: PageName; label: string }[] = [
-  { page: "home", label: "Ana Sayfa" },
-  { page: "events", label: "Etkinlikler" },
-  { page: "add", label: "Etkinlik Ekle" }
-];
 
-// "2026-10-12" → "12 Ekim 2026"
-const formatDate = (date: string) =>
-  new Date(`${date}T00:00`).toLocaleDateString("tr-TR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
+
+
 
 export default function App() {
   const [page, setPage] = useState<PageName>("home");
@@ -69,89 +64,37 @@ export default function App() {
     .slice(0, 2);
 
   // Etkinlik Kartı Render Fonksiyonu (Sprint 3'teki kartın JSX hali)
-  function renderCard(event: CampusEvent) {
-    return (
-      <article className="event-card" key={event.id}>
-        <h2>{event.title}</h2>
-        <p>
-          {event.category} · {formatDate(event.date)} · {event.location}
-        </p>
-        <p>{event.description}</p>
-        <p>Kontenjan: {event.capacity}</p>
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            go("detail", event.id);
-          }}
-        >
-          Detayları gör
-        </a>
-      </article>
-    );
-  }
+  
 
   return (
     <>
-      <header className="site-baslik">
-        <h1>{title}</h1>
+      <Header title={title} />
 
-        <nav className="menu">
-          {menu.map((item) => (
-            <a
-              key={item.page}
-              href="#"
-              aria-current={page === item.page ? "page" : undefined}
-              onClick={(e) => {
-                e.preventDefault();
-                go(item.page);
-              }}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </header>
+        <Navigation
+  page={page}
+  onNavigate={go}
+/>
+  
 
       <main>
         {/* ADIM 9: Ana Sayfa */}
         {page === "home" && (
           <>
             <h2>Yaklaşan Etkinlikler</h2>
-            <section className="event-grid">{upcoming.map(renderCard)}</section>
+            <EventList events={upcoming} onShowDetail={(id) => go("detail", id)} />
           </>
         )}
 
         {/* ADIM 10: Etkinlikler Sayfası */}
         {page === "events" && (
           <>
-            <form className="filtre" onSubmit={(e) => e.preventDefault()}>
-              <div className="filtre-alani">
-                <label htmlFor="arama">Etkinlik ara</label>
-                <input
-                  type="search"
-                  id="arama"
-                  placeholder="Etkinlik veya açıklama ara..."
-                  value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
-                />
-              </div>
-              <div className="filtre-alani">
-                <label htmlFor="kategori-filtre">Kategori</label>
-                <select
-                  id="kategori-filtre"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value as Category | "")}
-                >
-                  <option value="">Tümü</option>
-                  {categories.map((cat) => (
-                    <option key={cat} value={cat}>
-                      {cat}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </form>
+            <EventFilter
+  searchText={searchText}
+  onSearchChange={setSearchText}
+  category={category}
+  categories={categories}
+  onCategoryChange={setCategory}
+/>
 
             <p id="sonuc">
               {filteredEvents.length === 0
@@ -159,7 +102,11 @@ export default function App() {
                 : `${filteredEvents.length} etkinlik listeleniyor.`}
             </p>
 
-            <section className="event-grid">{filteredEvents.map(renderCard)}</section>
+            <EventList
+  events={filteredEvents}
+  onShowDetail={(id) => go("detail", id)}
+  emptyText="Etkinlik bulunamadı."
+/>
           </>
         )}
 
@@ -180,57 +127,14 @@ export default function App() {
         )}
 
         {page === "detail" && selected && (
-          <article className="event-detail">
-            {selected.image && (
-              <div className="event-image">
-                <figure>
-                  <img src={selected.image} alt={`${selected.title} etkinlik afişi`} />
-                  <figcaption>{selected.title} afişi</figcaption>
-                </figure>
-              </div>
-            )}
+  <EventDetail
+    event={selected}
+    onBack={() => go("events")}
+    onEdit={(id) => go("update", id)}
+  />
+)}
 
-            <div className="event-info">
-              <dl>
-                <dt>Tarih</dt>
-                <dd>
-                  {formatDate(selected.date)}, {selected.time}
-                </dd>
-                <dt>Yer</dt>
-                <dd>{selected.location}</dd>
-                <dt>Kategori</dt>
-                <dd>{selected.category}</dd>
-                <dt>Kontenjan</dt>
-                <dd>{selected.capacity}</dd>
-              </dl>
-
-              <p>{selected.description}</p>
-
-              <p>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    go("events");
-                  }}
-                >
-                  Listeye dön
-                </a>
-              </p>
-              <p>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    go("update", selected.id);
-                  }}
-                >
-                  Bu etkinliği güncelle
-                </a>
-              </p>
-            </div>
-          </article>
-        )}
+       
 
         {/* ADIM 13: Ekle ve Güncelle Sayfaları Formu */}
         {/* key: Ekle ↔ Güncelle geçişinde form yeniden kurulur, eski değerler kalmaz */}
@@ -313,9 +217,7 @@ export default function App() {
         )}
       </main>
 
-      <footer>
-        <p>elif avcı · 2416501019 · 2026</p>
-      </footer>
+      <Footer />
     </>
   );
 }
