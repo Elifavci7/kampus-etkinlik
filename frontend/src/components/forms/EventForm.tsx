@@ -34,20 +34,20 @@ function EventForm({ initialData, submitText, onSubmit }: EventFormProps) {
 
   return (
     <form className="form" noValidate onSubmit={handleSubmit}>
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="title">Etkinlik Adı</label>
         <input
+          type="text"
           id="title"
           name="title"
-          type="text"
           value={data.title}
           onChange={handleChange}
           aria-invalid={errors.title ? true : undefined}
         />
-        {errors.title && <span className="hata-metni">{errors.title}</span>}
-      </div>
+        <span className="hata-metni">{errors.title}</span>
+      </p>
 
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="category">Kategori</label>
         <select
           id="category"
@@ -63,77 +63,79 @@ function EventForm({ initialData, submitText, onSubmit }: EventFormProps) {
             </option>
           ))}
         </select>
-        {errors.category && <span className="hata-metni">{errors.category}</span>}
-      </div>
+        <span className="hata-metni">{errors.category}</span>
+      </p>
 
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="date">Tarih</label>
         <input
+          type="date"
           id="date"
           name="date"
-          type="date"
           value={data.date}
           onChange={handleChange}
           aria-invalid={errors.date ? true : undefined}
         />
-        {errors.date && <span className="hata-metni">{errors.date}</span>}
-      </div>
+        <span className="hata-metni">{errors.date}</span>
+      </p>
 
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="time">Saat</label>
         <input
+          type="time"
           id="time"
           name="time"
-          type="time"
           value={data.time}
           onChange={handleChange}
           aria-invalid={errors.time ? true : undefined}
         />
-        {errors.time && <span className="hata-metni">{errors.time}</span>}
-      </div>
+        <span className="hata-metni">{errors.time}</span>
+      </p>
 
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="location">Yer</label>
         <input
+          type="text"
           id="location"
           name="location"
-          type="text"
           value={data.location}
           onChange={handleChange}
           aria-invalid={errors.location ? true : undefined}
         />
-        {errors.location && <span className="hata-metni">{errors.location}</span>}
-      </div>
+        <span className="hata-metni">{errors.location}</span>
+      </p>
 
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="capacity">Kontenjan</label>
         <input
+          type="number"
           id="capacity"
           name="capacity"
-          type="number"
           value={data.capacity}
           onChange={handleChange}
           aria-invalid={errors.capacity ? true : undefined}
         />
-        {errors.capacity && <span className="hata-metni">{errors.capacity}</span>}
-      </div>
+        <span className="hata-metni">{errors.capacity}</span>
+      </p>
 
-      <div className="form-alani">
+      <p className="alan">
         <label htmlFor="description">Açıklama</label>
         <textarea
           id="description"
           name="description"
-          rows={4}
+          rows={5}
           value={data.description}
           onChange={handleChange}
           aria-invalid={errors.description ? true : undefined}
         />
-        {errors.description && <span className="hata-metni">{errors.description}</span>}
-      </div>
+        <span className="hata-metni">{errors.description}</span>
+      </p>
 
-      <button type="submit" className="buton">
-        {submitText}
-      </button>
+      <p className="form-butonlar">
+        <button type="submit" className="buton">
+          {submitText}
+        </button>
+      </p>
     </form>
   );
 }

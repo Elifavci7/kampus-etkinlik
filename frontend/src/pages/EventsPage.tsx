@@ -18,20 +18,20 @@ function EventsPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Etkinlikler</h2>
       <EventFilter
         searchText={searchText}
+        onSearchChange={setSearchText}
         category={category}
         categories={categories}
-        onSearchChange={setSearchText}
         onCategoryChange={setCategory}
       />
-      <p id="sonuc" className="sonuc">
-        {filtered.length === 0
-          ? "Etkinlik bulunamadı."
-          : `${filtered.length} etkinlik listeleniyor.`}
-      </p>
-      <EventList events={filtered} emptyText="Etkinlik bulunamadı." />
+      {filtered.length > 0 && (
+        <p className="sonuc">{filtered.length} etkinlik listeleniyor.</p>
+      )}
+      <EventList
+        events={filtered}
+        emptyText="Aramanıza uygun etkinlik bulunamadı."
+      />
     </>
   );
 }

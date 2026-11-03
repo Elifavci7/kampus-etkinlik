@@ -32,7 +32,11 @@ export function EventsProvider({ children }: { children: ReactNode }) {
   }
 
   function updateEvent(id: string, data: EventFormData) {
-    setEvents(events.map((e) => (e.id === id ? toEvent(id, data) : e)));
+    setEvents(
+      events.map((e) =>
+        e.id === id ? { ...toEvent(id, data), image: e.image } : e
+      )
+    );
   }
 
   function deleteEvent(id: string) {
@@ -52,7 +56,7 @@ export function EventsProvider({ children }: { children: ReactNode }) {
 export function useEvents() {
   const value = useContext(EventsContext);
   if (value === null) {
-    throw new Error("Provider yok");
+    throw new Error("useEvents, EventsProvider içinde kullanılmalı.");
   }
   return value;
 }

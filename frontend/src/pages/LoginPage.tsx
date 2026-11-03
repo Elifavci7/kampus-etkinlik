@@ -25,49 +25,48 @@ function LoginPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Giriş Yap</h2>
+      {sent && (
+        <p className="mesaj mesaj-basari">
+          Form geçerli. Gerçek giriş Sprint 10'da eklenecek.
+        </p>
+      )}
+
       <form className="form" noValidate onSubmit={handleSubmit}>
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="email">E-posta</label>
           <input
-            id="email"
-            name="email"
             type="email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={errors.email ? true : undefined}
           />
-          {errors.email && <span className="hata-metni">{errors.email}</span>}
-        </div>
+          <span className="hata-metni">{errors.email}</span>
+        </p>
 
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="password">Şifre</label>
           <input
-            id="password"
-            name="password"
             type="password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             aria-invalid={errors.password ? true : undefined}
           />
-          {errors.password && <span className="hata-metni">{errors.password}</span>}
-        </div>
+          <span className="hata-metni">{errors.password}</span>
+        </p>
 
-        <button type="submit" className="buton">
-          Giriş yap
-        </button>
-
-        {sent && (
-          <p className="mesaj mesaj-basari">
-            Gerçek giriş Sprint 10'da
-          </p>
-        )}
-
-        <div style={{ display: "flex", gap: "15px", marginTop: "10px", fontSize: "0.9rem" }}>
-          <Link to="/forgot-password">Şifremi unuttum</Link>
-          <Link to="/register">Hesabın yok mu? Kayıt ol</Link>
-        </div>
+        <p className="form-butonlar">
+          <button type="submit" className="buton">
+            Giriş yap
+          </button>
+        </p>
       </form>
+
+      <p className="form-baglantilar">
+        <Link to="/forgot-password">Şifremi unuttum</Link>
+        <Link to="/register">Hesabın yok mu? Kayıt ol</Link>
+      </p>
     </>
   );
 }

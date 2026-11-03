@@ -8,40 +8,49 @@ interface EventDetailProps {
 
 function EventDetail({ event }: EventDetailProps) {
   return (
-    <article className="event-detail">
-      {event.image && (
-        <div className="event-image">
+    <article className="detay">
+      <div className="detay-ust">
+        {event.image && (
           <figure>
-            <img src={event.image} alt={event.title} />
+            <img
+              src={event.image}
+              alt={`${event.title} afişi`}
+              width="480"
+              height="270"
+            />
+            <figcaption>{event.title} afişi</figcaption>
           </figure>
-        </div>
-      )}
-      <div className="event-info">
-        <dl>
-          <dt>Tarih</dt>
-          <dd>{formatDate(event.date)}</dd>
-          <dt>Saat</dt>
-          <dd>{event.time}</dd>
-          <dt>Yer</dt>
-          <dd>{event.location}</dd>
-          <dt>Kategori</dt>
-          <dd>{event.category}</dd>
-          <dt>Kontenjan</dt>
-          <dd>{event.capacity} kişi</dd>
-        </dl>
-
-        <h3>Açıklama</h3>
-        <p>{event.description}</p>
-
-        <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-          <Link className="buton" to="/events">
-            Listeye dön
-          </Link>
-          <Link className="buton" to={`/admin/${event.id}/edit`}>
-            Güncelle
-          </Link>
-        </div>
+        )}
+        <section className="kunye">
+          <h2>Etkinlik Künyesi</h2>
+          <dl>
+            <dt>Tarih</dt>
+            <dd>
+              <time dateTime={`${event.date}T${event.time}`}>
+                {formatDate(event.date)}, {event.time}
+              </time>
+            </dd>
+            <dt>Yer</dt>
+            <dd>{event.location}</dd>
+            <dt>Kategori</dt>
+            <dd>{event.category}</dd>
+            <dt>Kontenjan</dt>
+            <dd>{event.capacity} kişi</dd>
+          </dl>
+        </section>
       </div>
+
+      <h2>Açıklama</h2>
+      <p>{event.description}</p>
+
+      <p className="form-butonlar">
+        <Link className="buton" to="/events">
+          ← Listeye dön
+        </Link>
+        <Link className="buton" to={`/admin/${event.id}/edit`}>
+          Bu etkinliği güncelle
+        </Link>
+      </p>
     </article>
   );
 }

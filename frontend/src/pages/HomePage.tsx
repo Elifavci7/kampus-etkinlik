@@ -12,11 +12,11 @@ function HomePage() {
     <>
       <h2 className="bolum-baslik">Yaklaşan 2 Etkinlik</h2>
       <EventList events={upcoming} />
-      <div style={{ marginTop: "20px" }}>
+      <p>
         <Link className="buton" to="/events">
-          Tüm Etkinlikler
+          Tüm etkinlikleri gör
         </Link>
-      </div>
+      </p>
     </>
   );
 }

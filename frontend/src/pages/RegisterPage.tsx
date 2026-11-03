@@ -21,7 +21,7 @@ function RegisterPage() {
     const found: RegisterErrors = {};
 
     if (name.trim().length < 3) {
-      found.name = "Ad en az 3 karakter olmalı.";
+      found.name = "Ad soyad en az 3 karakter olmalı.";
     }
 
     if (!email.includes("@")) {
@@ -42,74 +42,71 @@ function RegisterPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Kayıt Ol</h2>
+      {sent && (
+        <p className="mesaj mesaj-basari">
+          Form geçerli. Gerçek kayıt Sprint 10'da eklenecek.
+        </p>
+      )}
+
       <form className="form" noValidate onSubmit={handleSubmit}>
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="name">Ad Soyad</label>
           <input
-            id="name"
-            name="name"
             type="text"
+            id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             aria-invalid={errors.name ? true : undefined}
           />
-          {errors.name && <span className="hata-metni">{errors.name}</span>}
-        </div>
+          <span className="hata-metni">{errors.name}</span>
+        </p>
 
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="email">E-posta</label>
           <input
-            id="email"
-            name="email"
             type="email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={errors.email ? true : undefined}
           />
-          {errors.email && <span className="hata-metni">{errors.email}</span>}
-        </div>
+          <span className="hata-metni">{errors.email}</span>
+        </p>
 
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="password">Şifre</label>
           <input
-            id="password"
-            name="password"
             type="password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             aria-invalid={errors.password ? true : undefined}
           />
-          {errors.password && <span className="hata-metni">{errors.password}</span>}
-        </div>
+          <span className="hata-metni">{errors.password}</span>
+        </p>
 
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="password2">Şifre (tekrar)</label>
           <input
-            id="password2"
-            name="password2"
             type="password"
+            id="password2"
             value={password2}
             onChange={(e) => setPassword2(e.target.value)}
             aria-invalid={errors.password2 ? true : undefined}
           />
-          {errors.password2 && <span className="hata-metni">{errors.password2}</span>}
-        </div>
+          <span className="hata-metni">{errors.password2}</span>
+        </p>
 
-        <button type="submit" className="buton">
-          Kayıt ol
-        </button>
-
-        {sent && (
-          <p className="mesaj mesaj-basari">
-            Kayıt başarılı (demo)
-          </p>
-        )}
-
-        <div style={{ marginTop: "10px", fontSize: "0.9rem" }}>
-          <Link to="/login">Zaten hesabın var mı? Giriş yap</Link>
-        </div>
+        <p className="form-butonlar">
+          <button type="submit" className="buton">
+            Kayıt ol
+          </button>
+        </p>
       </form>
+
+      <p className="form-baglantilar">
+        <Link to="/login">Zaten hesabın var mı? Giriş yap</Link>
+      </p>
     </>
   );
 }

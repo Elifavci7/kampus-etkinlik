@@ -15,10 +15,7 @@ function ForgotPasswordPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Şifremi Unuttum</h2>
-      <p style={{ marginBottom: "15px", color: "#555" }}>
-        Kayıtlı e-posta adresinizi yazın, şifre yenileme bağlantısı gönderelim.
-      </p>
+      <p>Kayıtlı e-posta adresinizi yazın, şifre yenileme bağlantısı gönderelim.</p>
 
       {sent && (
         <p className="mesaj mesaj-basari">
@@ -27,27 +24,28 @@ function ForgotPasswordPage() {
       )}
 
       <form className="form" noValidate onSubmit={handleSubmit}>
-        <div className="form-alani">
+        <p className="alan">
           <label htmlFor="email">E-posta</label>
           <input
-            id="email"
-            name="email"
             type="email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={error ? true : undefined}
           />
-          {error && <span className="hata-metni">{error}</span>}
-        </div>
+          <span className="hata-metni">{error}</span>
+        </p>
 
-        <button type="submit" className="buton">
-          Bağlantı gönder
-        </button>
-
-        <div style={{ marginTop: "10px", fontSize: "0.9rem" }}>
-          <Link to="/login">← Girişe dön</Link>
-        </div>
+        <p className="form-butonlar">
+          <button type="submit" className="buton">
+            Bağlantı gönder
+          </button>
+        </p>
       </form>
+
+      <p className="form-baglantilar">
+        <Link to="/login">← Girişe dön</Link>
+      </p>
     </>
   );
 }

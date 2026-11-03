@@ -10,15 +10,18 @@ const menu = [
 function Navigation() {
   return (
     <nav className="menu">
-      {menu.map((item) => (
-        <NavLink
-          key={item.to}
-          to={item.to}
-          end={item.to === "/"}
-        >
-          {item.label}
-        </NavLink>
-      ))}
+      <ul>
+        {menu.map((item) => (
+          <li key={item.to}>
+            <NavLink
+              to={item.to}
+              end={item.to === "/"}
+            >
+              {item.label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }

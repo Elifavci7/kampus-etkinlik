@@ -16,22 +16,22 @@ function EventFilter({
   onCategoryChange,
 }: EventFilterProps) {
   return (
-    <form className="filtre" onSubmit={(e) => e.preventDefault()}>
-      <div className="filtre-alani">
+    <form className="filtre" role="search" onSubmit={(e) => e.preventDefault()}>
+      <p className="alan">
         <label htmlFor="arama">Etkinlik ara</label>
         <input
-          id="arama"
           type="search"
+          id="arama"
+          placeholder="Örn. atölye, kariyer"
           value={searchText}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Örn. atölye, kariyer"
         />
-      </div>
+      </p>
 
-      <div className="filtre-alani">
-        <label htmlFor="kategori">Kategori</label>
+      <p className="alan">
+        <label htmlFor="kategori-filtre">Kategori</label>
         <select
-          id="kategori"
+          id="kategori-filtre"
           value={category}
           onChange={(e) =>
             onCategoryChange(e.target.value as Category | "")
@@ -44,7 +44,7 @@ function EventFilter({
             </option>
           ))}
         </select>
-      </div>
+      </p>
     </form>
   );
 }

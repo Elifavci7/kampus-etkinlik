@@ -8,13 +8,23 @@ interface EventCardProps {
 
 function EventCard({ event }: EventCardProps) {
   return (
-    <article className="event-card">
+    <article className="kart">
       <h2>{event.title}</h2>
-      <p>{formatDate(event.date)} · {event.location}</p>
+      <p className="kart-kategori">{event.category}</p>
+      <p>
+        Tarih:{" "}
+        <time dateTime={`${event.date}T${event.time}`}>
+          {formatDate(event.date)}, {event.time}
+        </time>
+      </p>
+      <p>Yer: {event.location}</p>
+      <p>Kontenjan: {event.capacity} kişi</p>
       <p>{event.description}</p>
-      <Link to={`/events/${event.id}`}>
-        Detayları gör
-      </Link>
+      <p>
+        <Link className="kart-link" to={`/events/${event.id}`}>
+          Detayları gör
+        </Link>
+      </p>
     </article>
   );
 }

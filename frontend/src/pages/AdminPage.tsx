@@ -13,12 +13,11 @@ function AdminPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Etkinlik Yönetimi</h2>
-      <div style={{ marginBottom: "20px" }}>
+      <p>
         <Link className="buton" to="/admin/new">
           + Yeni etkinlik
         </Link>
-      </div>
+      </p>
 
       {events.length === 0 ? (
         <p className="sonuc">Henüz etkinlik yok.</p>
@@ -38,7 +37,7 @@ function AdminPage() {
                 <td data-baslik="Etkinlik">{event.title}</td>
                 <td data-baslik="Tarih">{formatDate(event.date)}</td>
                 <td data-baslik="Kategori">{event.category}</td>
-                <td data-baslik="İşlemler" className="islemler">
+                <td className="islemler">
                   <Link
                     className="buton"
                     to={`/admin/${event.id}/edit`}

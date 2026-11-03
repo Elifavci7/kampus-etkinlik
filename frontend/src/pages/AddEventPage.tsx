@@ -18,17 +18,14 @@ function AddEventPage() {
   const navigate = useNavigate();
 
   return (
-    <>
-      <h2 className="bolum-baslik">Etkinlik Ekle</h2>
-      <EventForm
-        initialData={emptyForm}
-        submitText="Kaydet"
-        onSubmit={(data) => {
-          addEvent(data);
-          navigate("/admin");
-        }}
-      />
-    </>
+    <EventForm
+      initialData={emptyForm}
+      submitText="Kaydet"
+      onSubmit={(data) => {
+        addEvent(data);
+        navigate("/admin");
+      }}
+    />
   );
 }
 
