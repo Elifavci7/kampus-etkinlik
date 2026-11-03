@@ -1,4 +1,3 @@
-
 import type { Category } from "../../types/campus-event";
 
 interface EventFilterProps {
@@ -17,10 +16,7 @@ function EventFilter({
   onCategoryChange,
 }: EventFilterProps) {
   return (
-    <form
-      className="filtre"
-      onSubmit={(e) => e.preventDefault()}
-    >
+    <form className="filtre" onSubmit={(e) => e.preventDefault()}>
       <div className="filtre-alani">
         <label htmlFor="arama">Etkinlik ara</label>
         <input

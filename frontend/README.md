@@ -1,75 +1,56 @@
-# React + TypeScript + Vite
+# Kampüs Etkinlikleri - Sprint 6 & Vize
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Öğrenci:** Elif Avcı  
+**Öğrenci No:** 2416501019  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Canlı Vercel Adresi
 
-## React Compiler
+🔗 **[https://elifavci-frontend.vercel.app](https://elifavci-frontend.vercel.app)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Kurulum ve Çalıştırma
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Projeyi yerel ortamda çalıştırmak için aşağıdaki adımları izleyin:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Frontend dizininde bağımlılıkları yükleyin
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Geliştirme sunucusunu başlatın
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# Projeyi derlemek için (production build)
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🗺️ Route Haritası (10 Adres, 10 Sayfa)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Adres | Sayfa Bileşeni | Açıklama |
+|---|---|---|
+| `/` | `HomePage` | Ana sayfa (yaklaşan 2 etkinlik ve hızlı bağlantılar) |
+| `/events` | `EventsPage` | Tüm etkinliklerin listelendiği, arama ve kategori filtreli sayfa |
+| `/events/:id` | `EventDetailPage` | Belirli bir etkinliğin detay sayfası (`useParams` ile id okunur) |
+| `/login` | `LoginPage` | Kullanıcı giriş sayfası (kontrollü form & doğrulama) |
+| `/register` | `RegisterPage` | Yeni kullanıcı kayıt sayfası (şifre eşleşme & alan kontrolü) |
+| `/forgot-password` | `ForgotPasswordPage` | Şifre sıfırlama bağlantı talep sayfası |
+| `/admin` | `AdminPage` | Etkinlik yönetim paneli (tablo görünümü, responsive kartlar, silme onayı) |
+| `/admin/new` | `AddEventPage` | Yeni etkinlik ekleme formu |
+| `/admin/:id/edit` | `EditEventPage` | Mevcut etkinliği güncelleme formu |
+| `*` | `NotFoundPage` | Tanımsız veya bulunamayan adresler için 404 sayfası |
 
-```
+---
+
+## 🛠️ Proje Mimarisi ve Özellikleri
+
+- **React Router (`react-router-dom` v7):** Sayfa geçişleri, dinamik route parametreleri (`useParams`), programatik yönlendirme (`useNavigate`) ve aktif menü (`NavLink`).
+- **Context API (`EventsContext`):** Etkinlik listesi, etkinlik ekleme, güncelleme ve silme durum yönetimi tek bir merkezi sağlayıcıda tutulur ve tüm sayfalarda reaktif olarak güncellenir.
+- **Form Doğrulama (Controlled Forms):** HTML5 varsayılan balonları devre dışı bırakılmış (`noValidate`), özel doğrulama fonksiyonu (`validateEvent`) ve erişilebilir hata bildirimleri (`aria-invalid`, `.hata-metni`).
+- **Responsive Tasarım (Mobil & Masaüstü):** 
+  - Yönetim tablosu mobilde kart düzenine (`@media (max-width: 699px)`) dönüşür (`data-baslik`).
+  - Etkinlik ızgarası (`.event-grid`) ve detay sayfaları mobil uyumludur.
+- **Öğrenci Numarasına Özel Tema:** Öğrenci numarasına bağlı dinamik HSL ton hesaplamasıyla tutarlı kurumsal renk paleti.
