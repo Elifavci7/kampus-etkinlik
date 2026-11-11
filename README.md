@@ -1,17 +1,42 @@
-# Kampüs Etkinlikleri - Sprint 6 & Vize
+# Kampüs Etkinlikleri - Sprint 7 (Express REST API)
 
 **Öğrenci:** Elif Avcı  
 **Öğrenci No:** 2416501019  
 
 ---
 
-## 🌐 Canlı Vercel Adresi
+## 🌐 Canlı Vercel Adresi (Frontend)
 
 🔗 **[https://elifavci-frontend.vercel.app](https://elifavci-frontend.vercel.app)**
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma
+## 🔌 Backend (Sprint 7 - Express REST API)
+
+Backend uygulaması Node.js ve Express ile geliştirilmiş REST API servisidir:
+- **Dizin:** `backend/`
+- **Varsayılan Port:** `3000` (`.env` ile yapılandırılır)
+- **Sağlık Kontrolü:** `GET http://localhost:3000/health`
+- **Etkinlikler:** `GET /events`, `GET /events/:id`, `POST /events`
+- **Postman Koleksiyonu:** `backend/requests/kampus-api.json`
+- Detaylı API sözleşmesi ve çalıştırma talimatları için [backend/README.md](backend/README.md) belgesine bakın.
+
+### Backend Kurulum ve Çalıştırma
+
+```bash
+# Backend dizinine geçin
+cd backend
+
+# Bağımlılıkları kurun
+npm install
+
+# Geliştirme sunucusunu başlatın
+npm run dev
+```
+
+---
+
+## 🚀 Frontend Kurulum ve Çalıştırma
 
 Projeyi yerel ortamda çalıştırmak için aşağıdaki adımları izleyin:
 
@@ -31,7 +56,7 @@ npm run build
 
 ---
 
-## 🗺️ Route Haritası (10 Adres, 10 Sayfa)
+## 🗺️ Frontend Route Haritası (10 Adres, 10 Sayfa)
 
 | Adres | Sayfa Bileşeni | Açıklama |
 |---|---|---|
