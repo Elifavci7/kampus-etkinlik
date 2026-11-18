@@ -2,12 +2,12 @@
     "info":  {
                  "_postman_id":  "b8f0412a-6c51-40c2-9e95-94e019f39031",
                  "name":  "Kampüs API",
-                 "description":  "Sprint 7 Express REST API test koleksiyonu",
+                 "description":  "Sprint 8 Express REST API test koleksiyonu",
                  "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
              },
     "item":  [
                  {
-                     "name":  "GET /health",
+                     "name":  "GET 1 Health",
                      "request":  {
                                      "method":  "GET",
                                      "header":  [
@@ -30,7 +30,7 @@
                                   ]
                  },
                  {
-                     "name":  "GET /events",
+                     "name":  "GET 2 Etkinlik listesi",
                      "request":  {
                                      "method":  "GET",
                                      "header":  [
@@ -53,14 +53,14 @@
                                   ]
                  },
                  {
-                     "name":  "GET /events/6afd59b7b8ce4b4b7bf7289c",
+                     "name":  "GET 3 Tek etkinlik",
                      "request":  {
                                      "method":  "GET",
                                      "header":  [
 
                                                 ],
                                      "url":  {
-                                                 "raw":  "http://localhost:3000/events/6afd59b7b8ce4b4b7bf7289c",
+                                                 "raw":  "http://localhost:3000/events/6afd5c229048acaae49a218e",
                                                  "protocol":  "http",
                                                  "host":  [
                                                               "localhost"
@@ -68,7 +68,7 @@
                                                  "port":  "3000",
                                                  "path":  [
                                                               "events",
-                                                              "6afd59b7b8ce4b4b7bf7289c"
+                                                              "6afd5c229048acaae49a218e"
                                                           ]
                                              }
                                  },
@@ -77,14 +77,14 @@
                                   ]
                  },
                  {
-                     "name":  "GET /events/yok",
+                     "name":  "GET 4 Olmayan etkinlik (404)",
                      "request":  {
                                      "method":  "GET",
                                      "header":  [
 
                                                 ],
                                      "url":  {
-                                                 "raw":  "http://localhost:3000/events/yok",
+                                                 "raw":  "http://localhost:3000/events/111111",
                                                  "protocol":  "http",
                                                  "host":  [
                                                               "localhost"
@@ -92,7 +92,7 @@
                                                  "port":  "3000",
                                                  "path":  [
                                                               "events",
-                                                              "yok"
+                                                              "111111"
                                                           ]
                                              }
                                  },
@@ -101,7 +101,7 @@
                                   ]
                  },
                  {
-                     "name":  "POST /events (tam body)",
+                     "name":  "POST 5 Etkinlik oluştur (201)",
                      "request":  {
                                      "method":  "POST",
                                      "header":  [
@@ -113,7 +113,7 @@
                                                 ],
                                      "body":  {
                                                   "mode":  "raw",
-                                                  "raw":  "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"date\": \"2026-12-01\",\n  \"capacity\": 30,\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"description\": \"Git ve GitHub ile CV\u0027nize katkı...\"\n}",
+                                                  "raw":  "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"capacity\": 30,\n  \"date\": \"2026-12-10\",\n  \"time\": \"15:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 2\",\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
                                                   "options":  {
                                                                   "raw":  {
                                                                               "language":  "json"
@@ -137,7 +137,7 @@
                                   ]
                  },
                  {
-                     "name":  "POST /events (sadece title)",
+                     "name":  "POST 6 Eksik veri (400)",
                      "request":  {
                                      "method":  "POST",
                                      "header":  [
@@ -149,7 +149,7 @@
                                                 ],
                                      "body":  {
                                                   "mode":  "raw",
-                                                  "raw":  "{\n  \"title\": \"Git Atölyesi\"\n}",
+                                                  "raw":  "{\n  \"title\": \"Eksik Veri Testi\"\n}",
                                                   "options":  {
                                                                   "raw":  {
                                                                               "language":  "json"
